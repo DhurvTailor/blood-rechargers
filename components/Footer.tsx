@@ -86,8 +86,18 @@ export default function Footer() {
 
       <div className="border-t border-ink-800">
         <div className="container-page flex flex-col items-center justify-between gap-3 py-5 text-xs text-ink-400 sm:flex-row">
-          <p>© 2023–{new Date().getFullYear()} Blood Rechargers. Rebuilt with Next.js.</p>
-          <p>Every 2 seconds, someone needs blood. Be ready.</p>
+          <p>© 2023–{new Date().getFullYear()} Blood Rechargers.</p>
+          <p>
+            Made with care by{" "}
+            
+            <a href="https://sappytech.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-ink-300 transition hover:text-crimson-300"
+            >
+              Sappy Tech Solutions
+            </a>
+          </p>
         </div>
       </div>
     </footer>
