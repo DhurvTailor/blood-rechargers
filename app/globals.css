@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-fraunces: "Fraunces", serif;
+  --font-inter: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-canvas text-ink-800 font-body antialiased;
+}
+
+.dark body {
+  @apply bg-ink-900 text-ink-50;
+}
+
+/* Signature ECG "pulse" divider used across the site */
+.pulse-divider {
+  width: 100%;
+  height: 32px;
+}
+.pulse-divider path {
+  stroke-dasharray: 300;
+  animation: pulseLine 3s linear infinite;
+}
+
+::selection {
+  background: #C81E3A;
+  color: white;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.focus-ring {
+  @apply outline-none focus-visible:ring-2 focus-visible:ring-crimson-500 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas;
+}
+
+.container-page {
+  @apply mx-auto max-w-7xl px-5 sm:px-8 lg:px-10;
+}
+
+@layer components {
+  .nav-link {
+    @apply focus-ring rounded-md px-3 py-2 text-sm font-medium text-ink-700 transition hover:text-crimson-600 dark:text-ink-100 dark:hover:text-crimson-300;
+  }
+  .mobile-link {
+    @apply focus-ring block rounded-md px-2 py-2.5 text-sm font-medium text-ink-800 dark:text-ink-50;
+  }
+  .mobile-sublink {
+    @apply focus-ring block rounded-md px-2 py-2 text-sm text-ink-500 dark:text-ink-300;
+  }
+  .btn-primary {
+    @apply focus-ring inline-flex items-center justify-center gap-2 rounded-full bg-crimson-500 px-6 py-3 text-sm font-semibold text-white shadow-sm shadow-crimson-500/30 transition hover:bg-crimson-600;
+  }
+  .btn-secondary {
+    @apply focus-ring inline-flex items-center justify-center gap-2 rounded-full border border-ink-200 bg-white px-6 py-3 text-sm font-semibold text-ink-800 transition hover:border-crimson-300 hover:text-crimson-600 dark:border-ink-600 dark:bg-ink-800 dark:text-white;
+  }
+  .card {
+    @apply rounded-xl2 border border-ink-100 bg-white shadow-sm transition hover:shadow-md dark:border-ink-700 dark:bg-ink-800;
+  }
+  .input-field {
+    @apply w-full rounded-lg border border-ink-200 bg-white px-4 py-2.5 text-sm text-ink-800 outline-none transition focus:border-crimson-400 focus:ring-2 focus:ring-crimson-100 dark:border-ink-600 dark:bg-ink-900 dark:text-white;
+  }
+  .section-eyebrow {
+    @apply font-mono text-xs font-medium uppercase tracking-[0.2em] text-crimson-500;
+  }
+}
